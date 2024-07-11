@@ -8,16 +8,17 @@ class CustomLoadingWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ModalProgressHUD(
-      progressIndicator: Lottie.asset(
-            AssetsData.loadingLottie,
-            animate: true,
-            height: 100,
-            width: 100,
-          ),
-          inAsyncCall: true,
-          opacity: 0,
-          child: const SizedBox(),
-    );
+    return SizedBox();
+    //  ModalProgressHUD(
+    //   progressIndicator: Lottie.asset(
+    //         AssetsData.loadingLottie,
+    //         animate: true,
+    //         height: 100,
+    //         width: 100,
+    //       ),
+    //       inAsyncCall: true,
+    //       opacity: 0,
+    //       child: const SizedBox(),
+    // );
   }
 }

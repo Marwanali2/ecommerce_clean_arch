@@ -6,8 +6,8 @@ class SvgPictureComponent extends StatelessWidget {
   const SvgPictureComponent({
     super.key,
     required this.name,
-    required this.width,
-    required this.height,
+     this.width=24,
+     this.height=24,
     this.color,
   });
   final String name;
