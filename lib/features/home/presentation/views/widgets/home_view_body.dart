@@ -14,10 +14,49 @@ class HomeViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(top: 10.0.h, left: 16.w, right: 16.w),
-      child: const CustomScrollView(
-        physics: BouncingScrollPhysics(),
+      child: CustomScrollView(
+        physics: const BouncingScrollPhysics(),
         slivers: [
-          HomeViewSliverAppBar(),
+          const HomeViewSliverAppBar(),
+          SliverToBoxAdapter(
+            child: Row(
+              children: [
+                Container(
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(25.0.r),
+                    border: Border.all(color: AppColorStyles.kPrimaryColor),
+                  ),
+                  child: SizedBox(
+                    width: MediaQuery.sizeOf(context).width * 0.8,
+                    child: TextField(
+                      decoration: InputDecoration(
+                        hintText: 'What do you search for?',
+                        hintStyle: AppTextStyles.textStyle14PrimaryLight,
+                        prefixIcon: Padding(
+                          padding: EdgeInsets.only(right: 5.h, left: 22.w),
+                          child: const SvgPictureComponent(
+                            name:
+                                '${AssetsData.svgFolderPath}/icon _search.svg',
+                            width: 22,
+                            height: 22,
+                          ),
+                        ),
+                        border: InputBorder.none,
+                        contentPadding: EdgeInsets.symmetric(vertical: 13.0.h),
+                      ),
+                    ),
+                  ),
+                ),
+                const Spacer(),
+                const SvgPictureComponent(
+                  name: '${AssetsData.svgFolderPath}/icon _shopping cart.svg',
+                  width: 66,
+                  height: 22,
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );
