@@ -9,14 +9,13 @@ class HomeViewSliverAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SliverAppBar(
+    return const SliverAppBar(
+      backgroundColor: Colors.white,
       leading: SvgPictureComponent(
         name: '${AssetsData.svgFolderPath}/route_logo.svg',
         width: 66,
         height: 22,
       ),
-      floating: true,
-      snap: true,
     );
   }
 }
