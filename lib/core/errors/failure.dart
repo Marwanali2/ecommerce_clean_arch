@@ -10,30 +10,30 @@ abstract class Failure {
 class ServerFailure extends Failure {
   ServerFailure({required super.errorMessage});
 
-  factory ServerFailure.fromDioError(DioError dioError) {
+  factory ServerFailure.fromDioError(DioException dioError) {
     switch (dioError.type) {
-      case DioErrorType.connectionTimeout:
+      case DioExceptionType.connectionTimeout:
         return ServerFailure(errorMessage: "Connection timeout with ApiServer");
-      case DioErrorType.sendTimeout:
+      case DioExceptionType.sendTimeout:
         return ServerFailure(errorMessage: "Send timeout with ApiServer");
-      case DioErrorType.receiveTimeout:
+      case DioExceptionType.receiveTimeout:
         return ServerFailure(errorMessage: "Receive timeout with ApiServer");
-      case DioErrorType.badCertificate:
+      case DioExceptionType.badCertificate:
         return ServerFailure(errorMessage: "badCertificate with ApiServer");
-      case DioErrorType.badResponse:
+      case DioExceptionType.badResponse:
         return ServerFailure.fromResponse(
             dioError.response!.statusCode!, dioError.response!.data);
-      case DioErrorType.cancel:
+      case DioExceptionType.cancel:
         return ServerFailure(
             errorMessage: "Request to ApiServer was cancelled");
-      case DioErrorType.connectionError:
+      case DioExceptionType.connectionError:
         return ServerFailure(errorMessage: "No internet connection");
-      case DioErrorType.unknown:
+      case DioExceptionType.unknown:
         return ServerFailure(
             errorMessage: "Unexpected Error , Please try again");
       default:
         return ServerFailure(
-            errorMessage: "Oops,There\'s an error , Please try again");
+            errorMessage: "Oops,There's an error , Please try again");
     }
   }
 
@@ -45,7 +45,7 @@ class ServerFailure extends Failure {
           errorMessage: "Internal Server Error , Please try again");
     } else {
       return ServerFailure(
-          errorMessage: "Oops,There\'s an error , Please try again");
+          errorMessage: "Oops,There's an error , Please try again");
     }
   }
 }

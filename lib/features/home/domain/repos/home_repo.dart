@@ -1,9 +1,9 @@
-// import '../../../../core/errors/failure.dart';
-// import 'package:dartz/dartz.dart';
+import 'package:dartz/dartz.dart';
+import 'package:route_attendence_task/core/errors/failure.dart';
+import 'package:route_attendence_task/features/home/domain/entities/product_entity.dart';
 
-// import '../entities/book_entity.dart';
-// abstract class HomeRepoDomain{
-//   Future<Either<Failure,List<BookEntity>>> fetchFeaturedBooksDomain({int pageNumber=0});
-//   Future<Either<Failure,List<BookEntity>>> fetchBestBooksDomain();
-// }
+abstract class HomeRepo {
+  Future<Either<Failure,List<ProductEntity>>> fetchProducts();
+}
+
 
