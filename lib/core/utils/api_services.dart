@@ -1,9 +1,11 @@
 import 'package:dio/dio.dart';
 
 class ApiServices {
-  // static String baseUrl = "https://api.themoviedb.org/3";
-  // static String apiKey = "31521ab741626851b73c684539c33b5a";
-  // static Dio dio=Dio();
-
-  // ApiServices(Dio dio);
+   final String _baseUrl = "https://dummyjson.com/";
+   final Dio _dio = Dio();
+  ApiServices(Dio dio);
+  Future<Map<String, dynamic>> get({required String endPoint}) async {
+    var response = await _dio.get("$_baseUrl$endPoint");
+    return response.data;
+  }
 }
