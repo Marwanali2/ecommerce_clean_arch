@@ -1,12 +1,11 @@
 import 'package:hive/hive.dart';
 
-abstract class HomeLocalDataSource{
+abstract class HomeLocalDataSource {
   // List<BookEntity> fetchFeaturedBooksLocalDomain({int pageNumber=0});
   // List<BookEntity> fetchBestBooksLocalDomain();
-
 }
 
-class HomeLocalDataSourceImpl implements HomeLocalDataSource{
+class HomeLocalDataSourceImpl implements HomeLocalDataSource {
 //   @override
 //   List<BookEntity> fetchFeaturedBooksLocalDomain({int pageNumber=0}) {
 //     var box=Hive.box<BookEntity>(kFeaturedBooks);
@@ -23,7 +22,6 @@ class HomeLocalDataSourceImpl implements HomeLocalDataSource{
 //   List<BookEntity> fetchBestBooksLocalDomain() {
 //     var box=Hive.box<BookEntity>(kBestBooks);
 //     return box.values.toList();
- 
+
 //  }
- 
- }
+}

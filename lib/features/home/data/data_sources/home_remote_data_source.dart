@@ -1,19 +1,15 @@
 import 'package:hive/hive.dart';
 import 'package:route_attendence_task/core/utils/api_services.dart';
 
-abstract class HomeRemoteDataSource{
+abstract class HomeRemoteDataSource {
   // Future<List<BookEntity>> fetchFeaturedBooksDomain({int pageNumber=0});
   // Future<List<BookEntity>> fetchBestBooksDomain();
-
 }
 
-class HomeRemoteDataSourceImpl implements HomeRemoteDataSource{
-
+class HomeRemoteDataSourceImpl implements HomeRemoteDataSource {
   final ApiServices apiServices;
 
   HomeRemoteDataSourceImpl(this.apiServices);
-
-
 
   // @override
   // Future<List<BookEntity>> fetchFeaturedBooksDomain({int pageNumber=0}) async{
@@ -25,7 +21,6 @@ class HomeRemoteDataSourceImpl implements HomeRemoteDataSource{
   //   saveDataToBox(featuredBooksListDomain,kFeaturedBooks);
   //   return featuredBooksListDomain;
   // }
-
 
   // @override
   // Future<List<BookEntity>> fetchBestBooksDomain()async {
@@ -39,7 +34,6 @@ class HomeRemoteDataSourceImpl implements HomeRemoteDataSource{
 
   // }
 
-
   // List<BookEntity> getBooksList(Map<String, dynamic> data) {
   //   List<BookEntity> books = [];
   //   for (var bookMap in data['items']) {
@@ -47,5 +41,4 @@ class HomeRemoteDataSourceImpl implements HomeRemoteDataSource{
   //   }
   //   return books;
   // }
-
 }

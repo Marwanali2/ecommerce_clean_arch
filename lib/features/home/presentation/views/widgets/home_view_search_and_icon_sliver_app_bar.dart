@@ -51,7 +51,6 @@ class HomeViewSearchFieldAndIconSliverAppbar extends StatelessWidget {
           ),
           const SvgPictureComponent(
             name: '${AssetsData.svgFolderPath}/icon _shopping cart.svg',
-            
             height: 22,
           ),
         ],

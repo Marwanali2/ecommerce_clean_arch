@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:route_attendence_task/core/routing/routes.dart';
+
 class AppRouter {
   Route generateRoute(RouteSettings settings) {
     // This arguments to be passed in any screen like this: (arguments as ClassName).
@@ -23,7 +24,6 @@ class AppRouter {
           ),
         );
     }
- 
   }
 }
 
