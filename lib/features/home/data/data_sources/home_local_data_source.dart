@@ -1,27 +1,19 @@
-import 'package:hive/hive.dart';
+import 'package:route_attendence_task/core/utils/api_services.dart';
+import 'package:route_attendence_task/features/home/domain/entities/product_entity.dart';
 
 abstract class HomeLocalDataSource {
-  // List<BookEntity> fetchFeaturedBooksLocalDomain({int pageNumber=0});
-  // List<BookEntity> fetchBestBooksLocalDomain();
+  List<ProductEntity> fetchProducts();
 }
 
 class HomeLocalDataSourceImpl implements HomeLocalDataSource {
-//   @override
-//   List<BookEntity> fetchFeaturedBooksLocalDomain({int pageNumber=0}) {
-//     var box=Hive.box<BookEntity>(kFeaturedBooks);
-//     int startIndex=pageNumber*10;
-//     int endIndex=(pageNumber+1)*10;
-//     int lengthList=box.values.length;
-//     if(startIndex>=lengthList || endIndex>lengthList){
-//       return [];
-//     }
-//     return box.values.toList().sublist(startIndex,endIndex);
-//   }
+  final ApiServices apiServices;
 
-//   @override
-//   List<BookEntity> fetchBestBooksLocalDomain() {
-//     var box=Hive.box<BookEntity>(kBestBooks);
-//     return box.values.toList();
+  HomeLocalDataSourceImpl(this.apiServices);
+  
+  @override
+  List<ProductEntity> fetchProducts() {
+    // TODO: implement fetchProducts
+    throw UnimplementedError();
+  }
 
-//  }
 }
