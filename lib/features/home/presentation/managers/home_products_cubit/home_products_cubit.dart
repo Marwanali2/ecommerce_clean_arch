@@ -13,7 +13,7 @@ class HomeProductsCubit extends Cubit<HomeProductsState> {
   Future<void> fetchProducts() async {
     emit(HomeProductsLoading());
     if (kDebugMode) {
-      print("Fetching products...");
+      print("Fetching products");
     }
     var productsResult = await fetchProductsUseCase.call();
     productsResult.fold(

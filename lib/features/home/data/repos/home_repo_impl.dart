@@ -18,7 +18,7 @@ class HomeRepoImpl extends HomeRepo {
     try {
       List<ProductEntity> productsList;
       if (kDebugMode) {
-        print("Fetching products from local data source...");
+        print("Fetching products from local data source");
       } 
       productsList = homeLocalDataSource.fetchProducts();
       if (productsList.isNotEmpty) {
@@ -28,7 +28,7 @@ class HomeRepoImpl extends HomeRepo {
         return right(productsList);
       }
       if (kDebugMode) {
-        print("Fetching products from remote data source...");
+        print("Fetching products from remote data source");
       } 
       productsList = await homeRemoteDataSource.fetchProducts();
       return right(productsList);
