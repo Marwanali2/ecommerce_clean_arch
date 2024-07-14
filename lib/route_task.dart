@@ -6,6 +6,7 @@ import 'package:route_attendence_task/features/home/domain/use_cases/fetch_produ
 import 'package:route_attendence_task/features/home/presentation/managers/home_products_cubit/home_products_cubit.dart';
 import 'package:route_attendence_task/features/home/presentation/views/home_view.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 class RouteTask extends StatelessWidget {
   const RouteTask({super.key});
 
@@ -16,11 +17,14 @@ class RouteTask extends StatelessWidget {
       minTextAdapt: true,
       splitScreenMode: true,
       child: MultiBlocProvider(
-        providers:[
+        providers: [
           BlocProvider(
-            create: (context) => HomeProductsCubit(ProductsUseCase(getIt.get<HomeRepoImpl>())),
-            child: Container(),
-          )
+            create: (context) => HomeProductsCubit(
+              ProductsUseCase(
+                getIt.get<HomeRepoImpl>(),
+              ),
+            )..fetchProductsUseCase(),
+          ),
         ],
         child: MaterialApp(
           title: 'Route Task',
