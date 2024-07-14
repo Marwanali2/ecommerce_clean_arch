@@ -1,5 +1,4 @@
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:route_attendence_task/core/utils/api_services.dart';
 import 'package:route_attendence_task/core/utils/constants.dart';
 import 'package:route_attendence_task/features/home/domain/entities/product_entity.dart';
 
@@ -8,9 +7,9 @@ abstract class HomeLocalDataSource {
 }
 
 class HomeLocalDataSourceImpl implements HomeLocalDataSource {
-  final ApiServices apiServices;
+  
 
-  HomeLocalDataSourceImpl(this.apiServices);
+  HomeLocalDataSourceImpl();
 
   @override
   List<ProductEntity> fetchProducts() {
