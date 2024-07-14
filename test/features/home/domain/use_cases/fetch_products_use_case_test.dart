@@ -31,26 +31,26 @@ void main() {
 
   test('should get product list from the repository', () async {
     // arrange
-    when(mockHomeRepo.fetchProducts()).thenAnswer((_) async => Right(tProducts));
+    when(mockHomeRepo.fetchProducts()).thenAnswer((_) async => right(tProducts));
 
     // act
     final result = await useCase();
 
     // assert
-    expect(result, Right(tProducts));
+    expect(result, right(tProducts));
     verify(mockHomeRepo.fetchProducts());
     verifyNoMoreInteractions(mockHomeRepo);
   });
 
   test('should return failure when repository fails', () async {
     // arrange
-    when(mockHomeRepo.fetchProducts()).thenAnswer((_) async => Left(ServerFailure(errorMessage: 'Server Error')));
+    when(mockHomeRepo.fetchProducts()).thenAnswer((_) async => left(ServerFailure(errorMessage: 'Server Error')));
 
     // act
     final result = await useCase();
 
     // assert
-    expect(result, Left(ServerFailure(errorMessage: 'Server Error')));
+    expect(result, left(ServerFailure(errorMessage: 'Server Error')));
     verify(mockHomeRepo.fetchProducts());
     verifyNoMoreInteractions(mockHomeRepo);
   });

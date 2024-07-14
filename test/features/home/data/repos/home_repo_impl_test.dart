@@ -46,7 +46,7 @@ void main() {
 
     // assert
     verify(mockHomeLocalDataSource.fetchProducts());
-    expect(result, Right(tProducts));
+    expect(result, right(tProducts));
   });
 
   test('should return product list from remote data source when local is empty', () async {
@@ -60,7 +60,7 @@ void main() {
     // assert
     verify(mockHomeLocalDataSource.fetchProducts());
     verify(mockHomeRemoteDataSource.fetchProducts());
-    expect(result, Right(tProducts));
+    expect(result, right(tProducts));
   });
 
   test('should return server failure when remote data source fails', () async {
@@ -74,6 +74,6 @@ void main() {
     // assert
     verify(mockHomeLocalDataSource.fetchProducts());
     verify(mockHomeRemoteDataSource.fetchProducts());
-    expect(result, Left(ServerFailure(errorMessage: 'Exception: Server Error')));
+    expect(result, left(ServerFailure(errorMessage: 'Exception: Server Error')));
   });
 }
