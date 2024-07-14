@@ -18,10 +18,11 @@ class ProductEntityAdapter extends TypeAdapter<ProductEntity> {
     };
     return ProductEntity(
       productImageThumbnail: fields[0] as String?,
-      productImages: (fields[1] as List?)?.cast<String>(),
+      productImage: fields[1] as dynamic,
       productTitle: fields[2] as String,
       productDescription: fields[3] as String,
       productdiscountPercentage: fields[4] as num?,
+      productPrice: fields[6] as num?,
       productRatring: fields[5] as num?,
     );
   }
@@ -29,11 +30,11 @@ class ProductEntityAdapter extends TypeAdapter<ProductEntity> {
   @override
   void write(BinaryWriter writer, ProductEntity obj) {
     writer
-      ..writeByte(6)
+      ..writeByte(7)
       ..writeByte(0)
       ..write(obj.productImageThumbnail)
       ..writeByte(1)
-      ..write(obj.productImages)
+      ..write(obj.productImage)
       ..writeByte(2)
       ..write(obj.productTitle)
       ..writeByte(3)
@@ -41,7 +42,9 @@ class ProductEntityAdapter extends TypeAdapter<ProductEntity> {
       ..writeByte(4)
       ..write(obj.productdiscountPercentage)
       ..writeByte(5)
-      ..write(obj.productRatring);
+      ..write(obj.productRatring)
+      ..writeByte(6)
+      ..write(obj.productPrice);
   }
 
   @override

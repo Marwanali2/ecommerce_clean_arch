@@ -9,9 +9,10 @@ import 'package:route_attendence_task/route_task.dart';
 
 void main() async {
   await Hive.initFlutter();
+    setupServiceLocator();
   Hive.registerAdapter(ProductEntityAdapter());
   await Hive.openBox<ProductEntity>(kProductsBox);
-  setupServiceLocator();
+
   Bloc.observer = SimpleBlocObserver();
   runApp(const RouteTask());
 }

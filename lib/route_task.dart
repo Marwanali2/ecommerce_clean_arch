@@ -23,7 +23,7 @@ class RouteTask extends StatelessWidget {
               ProductsUseCase(
                 getIt.get<HomeRepoImpl>(),
               ),
-            )..fetchProductsUseCase(),
+            )..fetchProducts(),
           ),
         ],
         child: MaterialApp(

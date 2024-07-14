@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:route_attendence_task/core/routing/routes.dart';
+import 'package:route_attendence_task/features/home/presentation/views/home_view.dart';
 
 class AppRouter {
   Route generateRoute(RouteSettings settings) {
@@ -10,7 +11,7 @@ class AppRouter {
     switch (settings.name) {
       case Routes.kMain:
         return MaterialPageRoute(
-          builder: (_) => const SizedBox(),
+          builder: (_) => const HomeView(),
         );
       default:
         return MaterialPageRoute(
@@ -27,27 +28,3 @@ class AppRouter {
   }
 }
 
-/* import 'package:go_router/go_router.dart';
-import 'package:marovies/core/routing/routes.dart';
-import 'package:marovies/features/home/presentation/views/home_view.dart';
-import 'package:marovies/splash_view.dart';
-abstract class AppRouter {
-  
-
-  static final router = GoRouter(routes: <RouteBase>[
-    GoRoute(
-      path: Routes.kMain,
-      builder: (context, state) {
-        return const SplashView();
-      },
-    ),
-    GoRoute(
-      path: Routes.kHome,
-      builder: (context, state) {
-        return const HomeView();
-      },
-    ),
-  
-  ]);
-}
- */

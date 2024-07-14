@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:route_attendence_task/core/utils/assets_data.dart';
@@ -12,9 +13,9 @@ class ProductContainer extends StatelessWidget {
   final String imageUrl;
   final String name;
   final String description;
-  final String price;
-  final String oldPrice;
-  final double rating;
+  final num price;
+  final num oldPrice;
+  final num rating;
 
   const ProductContainer({
     required this.imageUrl,
@@ -45,19 +46,24 @@ class ProductContainer extends StatelessWidget {
             children: [
               Expanded(
                 child: Container(
-                  clipBehavior: Clip.antiAlias,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(13.0.r),
-                    topRight: Radius.circular(13.0.r),
-                  )),
-                  child: Image.network(
-                    imageUrl,
-                    fit: BoxFit.fill,
-                    width: 191.w,
-                    height: 128.h,
-                  ),
-                ),
+                    clipBehavior: Clip.antiAlias,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(13.0.r),
+                      topRight: Radius.circular(13.0.r),
+                    )),
+                    child: CachedNetworkImage(
+                      imageUrl: imageUrl,
+                      fit: BoxFit.fill,
+                      width: 191.w,
+                      height: 128.h,
+                      placeholder: (context, url) => const Center(
+                          child: CircularProgressIndicator(
+                        color: AppColorStyles.kPrimaryColor,
+                      )),
+                      errorWidget: (context, url, error) =>
+                          const Icon(Icons.error),
+                    )),
               ),
               SizedBox(height: 6.h),
               Padding(
@@ -79,22 +85,25 @@ class ProductContainer extends StatelessWidget {
                     Row(
                       children: [
                         Text(
-                          price,
+                          'EGP ${price.toString()}',
                           style: AppTextStyles.textStyle12SemiBlueNormal,
                         ),
                         SizedBox(width: 16.w),
-                        Text(
-                          oldPrice,
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
-                          style: AppTextStyles.textStyle11SemiLightBlueNormal
-                              .copyWith(
-                                  fontSize: 9.sp,
-                                  color: AppColorStyles.kSemiLightBlue
-                                      .withOpacity(0.6),
-                                  decoration: TextDecoration.lineThrough,
-                                  decorationColor: AppColorStyles.kSemiLightBlue
-                                      .withOpacity(0.6)),
+                        Expanded(
+                          child: Text(
+                            '${oldPrice.toString()} EGP',
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                            style: AppTextStyles.textStyle11SemiLightBlueNormal
+                                .copyWith(
+                                    fontSize: 9.sp,
+                                    color: AppColorStyles.kSemiLightBlue
+                                        .withOpacity(0.6),
+                                    decoration: TextDecoration.lineThrough,
+                                    decorationColor: AppColorStyles
+                                        .kSemiLightBlue
+                                        .withOpacity(0.6)),
+                          ),
                         ),
                       ],
                     ),

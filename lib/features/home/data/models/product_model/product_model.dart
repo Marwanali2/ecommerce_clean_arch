@@ -13,7 +13,7 @@ class ProductModel extends ProductEntity {
   double? discountPercentage;
   double? rating;
   num? stock;
-  List<String>? tags;
+  List<dynamic>? tags;
   String? brand;
   String? sku;
   num? weight;
@@ -25,7 +25,7 @@ class ProductModel extends ProductEntity {
   String? returnPolicy;
   num? minimumOrderQuantity;
   Meta? meta;
-  List<String>? images;
+  List<dynamic>? images;
   String? thumbnail;
 
   ProductModel({
@@ -53,11 +53,12 @@ class ProductModel extends ProductEntity {
     this.thumbnail,
   }) : super(
           productImageThumbnail: thumbnail,
-          productImages: images,
+          productImage: images,
           productTitle: title??'',
           productDescription: description??'',
           productdiscountPercentage: discountPercentage,
           productRatring: rating,
+          productPrice: price,
         );
 
   factory ProductModel.fromJson(Map<String, dynamic> json) => ProductModel(
@@ -69,7 +70,7 @@ class ProductModel extends ProductEntity {
         discountPercentage: (json['discountPercentage'] as num?)?.toDouble(),
         rating: (json['rating'] as num?)?.toDouble(),
         stock: json['stock'] as num?,
-        tags: json['tags'] as List<String>?,
+        tags: json['tags'] as List<dynamic>?,
         brand: json['brand'] as String?,
         sku: json['sku'] as String?,
         weight: json['weight'] as num?,
@@ -87,32 +88,7 @@ class ProductModel extends ProductEntity {
         meta: json['meta'] == null
             ? null
             : Meta.fromJson(json['meta'] as Map<String, dynamic>),
-        images: json['images'] as List<String>?,
+        images: json['images'] as List<dynamic>?,
         thumbnail: json['thumbnail'] as String?,
       );
-
-  Map<String, dynamic> toJson() => {
-        'id': id,
-        'title': title,
-        'description': description,
-        'category': category,
-        'price': price,
-        'discountPercentage': discountPercentage,
-        'rating': rating,
-        'stock': stock,
-        'tags': tags,
-        'brand': brand,
-        'sku': sku,
-        'weight': weight,
-        'dimensions': dimensions?.toJson(),
-        'warrantyInformation': warrantyInformation,
-        'shippingInformation': shippingInformation,
-        'availabilityStatus': availabilityStatus,
-        'reviews': reviews?.map((e) => e.toJson()).toList(),
-        'returnPolicy': returnPolicy,
-        'minimumOrderQuantity': minimumOrderQuantity,
-        'meta': meta?.toJson(),
-        'images': images,
-        'thumbnail': thumbnail,
-      };
 }

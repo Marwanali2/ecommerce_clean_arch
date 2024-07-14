@@ -20,6 +20,7 @@ class SvgPictureComponent extends StatelessWidget {
       name,
       height: height.h,
       width: width.w,
+      // ignore: deprecated_member_use
       color: color,
     );
   }
