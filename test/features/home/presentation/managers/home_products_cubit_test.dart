@@ -1,5 +1,3 @@
-// test/features/home/presentation/managers/home_products_cubit/home_products_cubit_test.dart
-
 import 'package:bloc_test/bloc_test.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
