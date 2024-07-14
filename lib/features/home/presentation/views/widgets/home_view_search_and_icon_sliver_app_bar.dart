@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:route_attendence_task/core/utils/assets_data.dart';
-import 'package:route_attendence_task/core/utils/colors.dart';
-import 'package:route_attendence_task/core/utils/text_styles.dart';
+import 'package:route_attendence_task/core/theming/colors.dart';
+import 'package:route_attendence_task/core/theming/text_styles.dart';
 import 'package:route_attendence_task/core/widgets/svg_picture_ccomponent.dart';
 
 class HomeViewSearchFieldAndIconSliverAppbar extends StatelessWidget {
@@ -29,7 +29,7 @@ class HomeViewSearchFieldAndIconSliverAppbar extends StatelessWidget {
               border: Border.all(color: AppColorStyles.kPrimaryColor),
             ),
             child: SizedBox(
-              width: MediaQuery.sizeOf(context).width * 0.8,
+              width: MediaQuery.sizeOf(context).width * 0.82,
               child: TextField(
                 decoration: InputDecoration(
                   hintText: 'What do you search for?',

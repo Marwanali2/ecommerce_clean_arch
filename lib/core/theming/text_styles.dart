@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:route_attendence_task/core/utils/colors.dart';
+import 'package:route_attendence_task/core/theming/colors.dart';
 
 abstract class AppTextStyles {
   static TextStyle textStyle11SemiLightBlueNormal = GoogleFonts.poppins(
