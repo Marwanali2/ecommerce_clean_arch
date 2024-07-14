@@ -12,8 +12,16 @@
 
 ## 📽 Demo
 
-
 https://github.com/user-attachments/assets/cf6935ac-a8fb-4a73-89b8-56f45a72d5df
+
+## 📽 Visual Studio Demo
+- the target from this video is showing how fetching api is done through caching from local data source(hive) and remote data source
+
+
+https://github.com/user-attachments/assets/512df63e-3350-45f5-96ba-b2c3c87301fb
+
+
+
 
 ## 📸ScreenShots
 - ***Home Shimmer Loading***
