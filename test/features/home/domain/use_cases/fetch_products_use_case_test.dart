@@ -19,10 +19,10 @@ void main() {
 
   final List<ProductEntity> tProducts = [
     ProductEntity(
-      productImageThumbnail: 'image.png',
-      productImage: 'image.png',
-      productTitle: 'Test Product',
-      productDescription: 'Test Description',
+      productImageThumbnail: 'image1.png',
+      productImage:'image.png',
+      productTitle: 'Test Product 1',
+      productDescription: 'Test Description 1',
       productdiscountPercentage: 10,
       productPrice: 100,
       productRatring: 4.5,

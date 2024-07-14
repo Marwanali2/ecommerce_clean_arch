@@ -17,10 +17,9 @@ class HomeRemoteDataSourceImpl implements HomeRemoteDataSource {
   Future<List<ProductEntity>> fetchProducts() async {
     var data = await apiServices.getHomeProducts(endPoint: 'products');
     List<ProductEntity> products = getProductsList(data);
-    cacheProductsBox(products,kProductsBox);
+    cacheProductsBox(products, kProductsBox);
     return products;
   }
-
 
   List<ProductEntity> getProductsList(Map<String, dynamic> data) {
     List<ProductEntity> products = [];

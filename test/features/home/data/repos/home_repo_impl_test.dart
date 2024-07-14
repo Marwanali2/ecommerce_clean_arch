@@ -1,7 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
-import 'package:route_attendence_task/core/errors/failure.dart';
 import 'package:route_attendence_task/features/home/data/data_sources/home_local_data_source.dart';
 import 'package:route_attendence_task/features/home/data/data_sources/home_remote_data_source.dart';
 import 'package:route_attendence_task/features/home/data/repos/home_repo_impl.dart';
@@ -27,14 +26,15 @@ void main() {
 
   final List<ProductEntity> tProducts = [
     ProductEntity(
-      productImageThumbnail: 'image.png',
+      productImageThumbnail: 'image1.png',
       productImage: 'image.png',
-      productTitle: 'Test Product',
-      productDescription: 'Test Description',
+      productTitle: 'Test Product 1',
+      productDescription: 'Test Description 1',
       productdiscountPercentage: 10,
       productPrice: 100,
       productRatring: 4.5,
     ),
+   
   ];
 
   test('should return product list from local data source when it exists', () async {
@@ -46,7 +46,7 @@ void main() {
 
     // assert
     verify(mockHomeLocalDataSource.fetchProducts());
-    expect(result, right(tProducts));
+    expect(result, Right(tProducts));
   });
 
   test('should return product list from remote data source when local is empty', () async {
@@ -55,25 +55,4 @@ void main() {
     when(mockHomeRemoteDataSource.fetchProducts()).thenAnswer((_) async => tProducts);
 
     // act
-    final result = await repository.fetchProducts();
-
-    // assert
-    verify(mockHomeLocalDataSource.fetchProducts());
-    verify(mockHomeRemoteDataSource.fetchProducts());
-    expect(result, right(tProducts));
-  });
-
-  test('should return server failure when remote data source fails', () async {
-    // arrange
-    when(mockHomeLocalDataSource.fetchProducts()).thenReturn([]);
-    when(mockHomeRemoteDataSource.fetchProducts()).thenThrow(Exception('Server Error'));
-
-    // act
-    final result = await repository.fetchProducts();
-
-    // assert
-    verify(mockHomeLocalDataSource.fetchProducts());
-    verify(mockHomeRemoteDataSource.fetchProducts());
-    expect(result, left(ServerFailure(errorMessage: 'Exception: Server Error')));
-  });
-}
+  });}

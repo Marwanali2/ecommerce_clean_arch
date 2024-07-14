@@ -11,7 +11,8 @@ class HomeRepoImpl extends HomeRepo {
   final HomeLocalDataSource homeLocalDataSource;
   final HomeRemoteDataSource homeRemoteDataSource;
 
-  HomeRepoImpl({required this.homeLocalDataSource, required this.homeRemoteDataSource});
+  HomeRepoImpl(
+      {required this.homeLocalDataSource, required this.homeRemoteDataSource});
 
   @override
   Future<Either<Failure, List<ProductEntity>>> fetchProducts() async {
@@ -19,23 +20,23 @@ class HomeRepoImpl extends HomeRepo {
       List<ProductEntity> productsList;
       if (kDebugMode) {
         print("Fetching products from local data source");
-      } 
+      }
       productsList = homeLocalDataSource.fetchProducts();
       if (productsList.isNotEmpty) {
         if (kDebugMode) {
           print("Products found in local data source");
-        } 
+        }
         return right(productsList);
       }
       if (kDebugMode) {
         print("Fetching products from remote data source");
-      } 
+      }
       productsList = await homeRemoteDataSource.fetchProducts();
       return right(productsList);
     } on Exception catch (e) {
       if (kDebugMode) {
         print("Fetch products error: ${e.toString()}");
-      } 
+      }
       return left(ServerFailure(errorMessage: e.toString()));
     }
   }
