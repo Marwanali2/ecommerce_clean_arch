@@ -1,7 +1,7 @@
 # Hi Geeks 👋
-# <p align="center">Route Attendence Task App</p>
+# <p align="center">Ecommerce with clean arch and Dio</p>
   
-✨It is a simple  E-Commerce project task to attend route jop fair event.
+✨It is a simple  E-Commerce project that show products based on the API.
 ## ✍ System Design
 ![Untitled Diagram drawio (1)](https://github.com/user-attachments/assets/44ecaa1c-b070-4cee-99a3-c54cf0782aa5)
 
